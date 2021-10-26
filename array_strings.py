@@ -98,8 +98,37 @@ def check_replace(str1,str2):
             return False
     return True
 
-str1 = "pale"
-str2 = "sd"
 
-print(edit_distance_one(str1,str2))
+#1.6
+def compress_string(str):
+    count = 1
+
+    result_string = []
+    for x in range(1,len(str)):
+        if str[x] != str[x-1]:
+            result_string.append(str[x-1])
+            result_string.append(count)
+            count = 1
+        else:
+            count+=1
+
+
+#1.9
+def is_rotated(str1,str12):
+
+    s1 = len(str1)
+    s2 = len(str12)
+
+    if s1 != s2:
+        return False
+
+    temp = s1 + s1
+
+    if (temp.count(s2)>0):
+        return True
+
+    return False
+
+str1='abbca'
+print(compress_string(str1))
 
